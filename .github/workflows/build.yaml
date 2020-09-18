@@ -5,6 +5,9 @@ on:
     branches: [ master ]
   pull_request:
     branches: [ master ]
+env:
+  TEST: test
+  TEST2: test2
 
 jobs:
   build:
@@ -13,7 +16,7 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-    - name: Use Node.js
+    - name: ${{ env.TEST }}
       uses: actions/setup-node@v1
     - run: |
         npm ci
